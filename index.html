@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Student Registration - Assignment 2</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Student Registration Form</h1>
+      <p class="subtitle">Department of Computer Science — Fall 2025</p>
+    </header>
+
+    <!-- Main content with the semantic form -->
+    <main>
+      <form action="#" method="post">
+        <!-- Personal details: uses fieldset/legend and required labels -->
+        <fieldset>
+          <legend>Personal Information</legend>
+
+          <label for="fname">First name <span class="req">*</span></label>
+          <input
+            type="text"
+            id="fname"
+            name="fname"
+            placeholder="Ahmed"
+            required />
+
+          <label for="lname">Last name <span class="req">*</span></label>
+          <input
+            type="text"
+            id="lname"
+            name="lname"
+            placeholder="Yar"
+            required />
+
+          <label for="dob">Date of birth</label>
+          <input type="date" id="dob" name="dob" max="2007-01-01" />
+
+          <label>Gender</label>
+          <label class="inline"
+            ><input type="radio" name="gender" value="male" required />
+            Male</label
+          >
+          <label class="inline"
+            ><input type="radio" name="gender" value="female" /> Female</label
+          >
+          <label class="inline"
+            ><input type="radio" name="gender" value="other" /> Other</label
+          >
+        </fieldset>
+
+        <!-- Academic details -->
+        <fieldset>
+          <legend>Academic Information</legend>
+
+          <label for="student-id">Student ID <span class="req">*</span></label>
+          <input
+            type="text"
+            id="student-id"
+            name="student-id"
+            pattern="[A-Za-z]{2}[0-9]{4}"
+            title="Format: CS1234"
+            placeholder="480756"
+            required />
+
+          <label for="department">Program / Department</label>
+          <select id="department" name="department" required>
+            <option value="" disabled selected>Select your program...</option>
+            <optgroup label="Faculty of Computing">
+              <option value="CS">Computer Science</option>
+              <option value="SE">Software Engineering</option>
+              <option value="IT">Information Technology</option>
+              <option value="IT">Artificial Ingelligence</option>
+            </optgroup>
+            <optgroup label="Faculty of Engineering">
+              <option value="EE">Civil Engineering</option>
+              <option value="EE">Electrical Engineering</option>
+              <option value="ME">Mechanical Engineering</option>
+            </optgroup>
+          </select>
+
+          <label for="courses">Courses (pick one)</label>
+          <select id="courses" name="courses">
+            <option value="">Choose...</option>
+            <option value="os">Operating Systems</option>
+            <option value="db">Database Systems</option>
+            <option value="algo">Data Structures and Algorithms</option>
+            <option value="algo">Multivariable Calculus</option>
+          </select>
+
+          <label for="credits">Expected credits</label>
+          <input
+            type="number"
+            id="credits"
+            name="credits"
+            min="0"
+            max="60"
+            placeholder="e.g. 15" />
+        </fieldset>
+
+        <!-- Contact and security -->
+        <fieldset>
+          <legend>Contact & Security</legend>
+
+          <label for="email">Email <span class="req">*</span></label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="ayar.bscs23.nbc@student.nust.edu.pk"
+            required />
+
+          <label for="phone">Phone number</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            pattern="[0-9]{10,15}"
+            placeholder="+92 3025545389" />
+
+          <label for="address">Address</label>
+          <textarea
+            id="address"
+            name="address"
+            rows="3"
+            placeholder="Quetta, Balochistan"></textarea>
+
+          <label for="profile">Profile photo</label>
+          <!-- placeholder image (not required to upload) -->
+          <img
+            src="https://placehold.co/120"
+            alt="Placeholder photo"
+            class="photo" />
+          <input type="file" id="profile" name="profile" accept="image/*" />
+
+          <label for="password">Password <span class="req">*</span></label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            pattern=".{8,}"
+            title="At least 8 characters"
+            required />
+
+          <label for="confirm"
+            >Confirm password <span class="req">*</span></label
+          >
+          <input
+            type="password"
+            id="confirm"
+            name="confirm"
+            pattern=".{8,}"
+            required />
+        </fieldset>
+
+        <!-- Extras: datalist and checkbox group -->
+        <fieldset>
+          <legend>Extras</legend>
+
+          <label for="campus">Preferred Campus</label>
+          <input
+            list="campus-list"
+            id="campus"
+            name="campus"
+            placeholder="Type or choose..." />
+          <datalist id="campus-list">
+            <option
+              value="School of Electrical Engineering and Computer Science (SEECS)"></option>
+            <option value="Military School of Signals(MCS)"></option>
+            <option value="NUST Balochistan Campus(NBC)"></option>
+          </datalist>
+
+          <label>Subscribe to updates</label>
+          <label class="inline"
+            ><input type="checkbox" name="subscribe" /> Yes, send me
+            updates</label
+          >
+
+          <!-- progress shown as optional visual feedback -->
+          <label for="progress">Form completion</label>
+          <progress id="progress" value="50" max="100">50%</progress>
+        </fieldset>
+
+        <!-- Form actions -->
+        <div class="form-actions">
+          <button type="submit">Submit Registration</button>
+          <button type="reset" class="secondary">Reset</button>
+        </div>
+      </form>
+    </main>
+
+    <footer>
+      <p>© 2025 Department of Computer Science NBC</p>
+    </footer>
+  </body>
+</html>
